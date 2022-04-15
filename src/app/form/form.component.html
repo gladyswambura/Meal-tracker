@@ -2,21 +2,26 @@
 <div class="container">
     <div class="row">
 
-        <form action="#" method="post">
+        <form #login="ngForm" (ngSubmit)="submit()">
             <div class="form-group">
-                <label for="name">Name..</label><br>
-                <input type="text" class="form-control" name="name" required ngModel>
+                <label for="name">Food Name..</label><br>
+                <input #name="ngModel" type="text" class="form-control" minlength="2" maxlength="8" name="food-name" required ngModel>
+                <div *ngIf="name.touched && name.invalid" class="alert alert-danger">Invalid!!</div>
             </div>
 
             <div class="form-group">
-              <label for="name">Name..</label><br>
-              <input type="text" class="form-control" name="name" required ngModel>
+              <label for="Calories">Calories..</label><br>
+              <input #Calories="ngModel" type="number" class="form-control" name="Calories" required ngModel>
+              <div *ngIf="Calories.touched && Calories.invalid" class="alert alert-danger">Invalid!!</div>
             </div>
 
             <div class="form-group">
-              <label for="name">Name..</label><br>
-              <input type="text" class="form-control" name="name" required ngModel>
+              <label for="details">Food-Details..</label><br>
+              <input #details="ngModel" type="text" minlenght="5" maxlength="20" class="form-control" name="Food-Details" required ngModel>
+              <div *ngIf="details.touched && details.invalid" class="alert alert-danger">Enter atleast Five words!!</div>
             </div>
+
+            <button></button>
         </form>
     </div>
 </div>
